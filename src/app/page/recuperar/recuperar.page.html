@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Recuperar Contraseña
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" routerLink="/login">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <p class="parrafo-color">¿Olvidaste tu Contraseña?</p>
+      <div id="square">
+        <p>No te preocupes, podemos ayudarte a recuperar el acceso a tu cuenta.</p>
+      </div>
+      <p class="parrafo-color">Ingresa tu usuario</p>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input placeholder=""></ion-input>
+      </ion-item>
+      <p class="parrafo-color">Presiona el botón para recuperar tu contraseña</p>
+      <ion-button expand="block" color="primary" routerLink="/login">Recuperar Contraseña</ion-button>
+      <div id="verde">
+        <p>y te enviaremos las instrucciones para restablecer tu contraseña.</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <ion-img src="assets/img/logo.png" alt="Logo de la aplicación" class="logo small-logo"></ion-img>
+      <p>¿Recuerdas tu contraseña?</p>
+      <ion-button expand="block" color="medium" routerLink="/login">Regresa a la pantalla de inicio de sesión</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

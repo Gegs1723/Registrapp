@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Escanear Código QR</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="navigateTo('/home')">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" (click)="navigateTo('/login')">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card id="body">
+    <ion-card-content>
+      <ion-card id="body" class="ion-text-center">
+        <ion-card-content>
+          <p class="parrafo-color ion-text-center">Para Escanear el Código QR</p>
+          <div id="square" class="ion-text-center">
+            <p>Apunta la cámara de tu dispositivo hacia el código QR proyectado en el aula para registrar tu asistencia de manera automática.</p>
+          </div>
+          <ion-button color="primary" (click)="scan()">Escanear Código QR</ion-button>
+          <ion-list>
+            <ng-container *ngFor="let scan of results">
+              <ion-item>
+                <ion-label>{{ scan.asignatura }} / {{ scan.seccion }} / {{ scan.fecha }}</ion-label>
+                <ion-button color="secondary" (click)="saveAttendance(scan)" slot="end">
+                  <ion-icon name="save-outline"></ion-icon> 
+                </ion-button>
+                <ion-button color="danger" (click)="delete(scan)" slot="end">
+                  <ion-icon name="trash-outline"></ion-icon> 
+                </ion-button>
+              </ion-item>
+            </ng-container>
+          </ion-list>
+          <br>
+          <ion-img src="assets/img/logo.png" alt="Logo" class="logo custom-logo"></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-button expand="block" color="success" (click)="navigateTo('/historial')">
+        <ion-icon name="list-outline"></ion-icon> Ver Historial
+      </ion-button>
+      <ion-button expand="block" color="tertiary" (click)="exportToExcel()">
+        <ion-icon name="download-outline"></ion-icon> Exportar a Excel
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+* {
+  font-family: 'Merriweather', serif;
+}
+
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#square {
+  background-color: #007bff; /* Color de fondo azul */
+  font-size: 20px; /* Tamaño de la fuente */
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 10px; /* Esquinas redondeadas */
+  margin: 10px auto; /* Centrar el cuadrado horizontalmente */
+  text-align: center; /* Centrar el texto */
+  width: 80%; /* Ancho del cuadrado */
+}
+
+.custom-title {
+    font-size: 100px; /* Tamaño del texto */
+    color: #007bff; /* Color azul */
+  }

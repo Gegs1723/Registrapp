@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+* {
+  font-family: 'Merriweather', serif;
+}
+
+#body {
+  font-family: 'Lato', sans-serif;
+  color: #1A1A1A; /* Color de texto principal */
+  background: linear-gradient(45deg, #F1B634, #ffffff); /* Degradado de color */
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #square {
+    background-color: #007bff; /* Color de fondo azul */
+    font-size: 20px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    border-radius: 10px; /* Esquinas redondeadas */
+    text-align: center; /* Centrar el texto */
+    width: 80%; /* Ancho del cuadrado */
+  }
+  #verde{
+    background-color: #08701f; /* Color de fondo azul */
+    font-size: 20px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    width: 80%; /* Ancho del cuadrado */
+    border-radius: 10px; /* Esquinas redondeadas */
+  }
+  
+  .custom-title {
+      font-size: 100px; /* Tamaño del texto */
+      color: #007bff; /* Color azul */
+    }
+
+    .parrafo-color {
+        color: #007bff; /* Color azul */
+        font-size: 30px; /* Tamaño de la fuente */
+
+      }
+
+      .small-logo {
+        width: 200px; /* Ancho de la imagen */
+        height: auto; /* Mantener la proporción de la imagen */
+        margin: 0 auto; /* Centrar horizontalmente */
+      }

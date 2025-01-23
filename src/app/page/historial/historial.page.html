@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Historial de Asistencia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="navigateTo('/home')">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" (click)="navigateTo('/logout')">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card id="body">
+    <ion-card-content>
+      <ion-card id="body" class="ion-text-center">
+        <ion-card-content>
+          <p class="parrafo-color ion-text-center">Historial de Escaneos</p>
+          <ion-list>
+            <ion-item *ngFor="let asignatura of groupedKeys">
+              <ion-label (click)="showAttendance(asignatura)">
+                {{ asignaturas[asignatura] || asignatura }}
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <br>
+          <ion-img src="assets/img/logo.png" alt="Logo" class="logo custom-logo"></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-button expand="block" color="primary" (click)="navigateTo('/escanear')">
+        <ion-icon name="scan-sharp"></ion-icon> volver a escanear
+      </ion-button>
+      <ion-button expand="block" color="tertiary" (click)="exportToExcel()">
+         Exportar a Excel <ion-icon name="download-outline" slot="end"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

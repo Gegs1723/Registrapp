@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Perfil de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" routerLink="/login">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <ion-img src="assets/img/logo.png" alt="Logo de la aplicación" class="logo custom-logo"></ion-img>
+      <div id="square" class="text-blue">
+        <p>Visualiza y edita tu información personal</p>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Nombre Completo</ion-label>
+        <ion-input [(ngModel)]="nombreCompleto" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre de Usuario</ion-label>
+        <ion-input [(ngModel)]="username" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico Institucional</ion-label>
+        <ion-input [(ngModel)]="correo" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">RUT</ion-label>
+        <ion-input [(ngModel)]="rut" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Carrera</ion-label>
+        <ion-input [(ngModel)]="carrera" placeholder=""></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card-content id="cont-bot" class="ion-text-center">
+    <ion-button color="secondary" (click)="confirmSaveUserData()">Editar Información</ion-button>
+    <ion-button color="warning" routerLink="/home">Volver al menú  <ion-icon name="home-outline"></ion-icon></ion-button>
+  </ion-card-content>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center text-light">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

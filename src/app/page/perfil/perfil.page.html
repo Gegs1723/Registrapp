@@ -34,11 +34,27 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">RUT</ion-label>
-        <ion-input [(ngModel)]="rut" placeholder="" required></ion-input>
+        <ion-input [(ngModel)]="rut" (ngModelChange)="isValidRUT(rut)" placeholder="" required></ion-input>
+        <ion-icon *ngIf="isRutValid" name="checkmark-circle" color="success" slot="end"></ion-icon>
+        <ion-icon *ngIf="!isRutValid && rut" name="close-circle" color="danger" slot="end"></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Carrera</ion-label>
         <ion-input [(ngModel)]="carrera" placeholder="" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nueva Contraseña</ion-label>
+        <ion-input [(ngModel)]="newPassword" [type]="showNewPassword ? 'text' : 'password'" placeholder="Nueva contraseña"></ion-input>
+        <ion-button fill="clear" slot="end" (click)="toggleNewPasswordVisibility()">
+          <ion-icon [name]="showNewPassword ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
+        <ion-input [(ngModel)]="confirmNewPassword" [type]="showConfirmNewPassword ? 'text' : 'password'" placeholder="Confirma nueva contraseña"></ion-input>
+        <ion-button fill="clear" slot="end" (click)="toggleConfirmNewPasswordVisibility()">
+          <ion-icon [name]="showConfirmNewPassword ? 'eye-off' : 'eye'"></ion-icon>
+        </ion-button>
       </ion-item>
     </ion-card-content>
   </ion-card>

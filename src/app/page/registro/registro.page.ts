@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { AlertController } from '@ionic/angular';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { User } from 'src/app/models/user';
+import { validate } from 'rut.js'; // Importa la función de validación
 
 @Component({
   selector: 'app-registro',
@@ -113,9 +114,7 @@ export class RegistroPage {
   }
 
   isValidRUT(rut: string): boolean {
-    // Implementa la validación de RUT chileno aquí
-    // Puedes usar una librería o escribir tu propia función de validación
-    return true; // Cambia esto por la lógica de validación real
+    return validate(rut); // Usa la función de validación de rut.js
   }
 
   togglePasswordVisibility() {

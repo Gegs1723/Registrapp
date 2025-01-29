@@ -5,6 +5,7 @@ import { LocalStorageService } from "src/app/services/local-storage.service";
 import { SessionService } from "src/app/services/session.service";
 import { UserService } from "src/app/services/user.service";
 import { User } from "src/app/models/user";
+import { validate } from 'rut.js'; // Importa la función de validación
 
 @Component({
   selector: 'app-perfil',
@@ -18,7 +19,12 @@ export class PerfilPage implements OnInit {
   correo!: string;
   rut!: string;
   carrera!: string;
+  newPassword: string = '';
+  confirmNewPassword: string = '';
+  showNewPassword: boolean = false;
+  showConfirmNewPassword: boolean = false;
   attendance: any[] = [];
+  isRutValid: boolean = true; // Para validación en tiempo real
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -33,26 +39,58 @@ export class PerfilPage implements OnInit {
     this.loadAttendanceData();
   }
 
+  ionViewWillEnter() {
+    this.loadUserData(); // Recargar datos cada vez que la página se muestra
+  }
+
   loadUserData() {
-    const userData = this.localStorageService.get('userData');
-    if (userData) {
-      this.nombreCompleto = userData.nombreCompleto;
-      this.username = userData.username;
-      this.correo = userData.correo;
-      this.rut = userData.rut;
-      this.carrera = userData.carrera;
+    const currentUsername = this.sessionService.getUserSession();
+    const users = this.localStorageService.get('usuarios') || [];
+    const currentUser = users.find((user: User) => user.username === currentUsername);
+    if (currentUser) {
+      this.nombreCompleto = currentUser.nombreCompleto;
+      this.username = currentUser.username;
+      this.correo = currentUser.correo;
+      this.rut = currentUser.rut;
+      this.carrera = currentUser.carrera;
+      this.newPassword = ''; // Limpiar el campo de nueva contraseña
+      this.confirmNewPassword = ''; // Limpiar el campo de confirmación de nueva contraseña
     }
   }
 
   async saveUserData() {
+    if (!this.isValidRUT(this.rut)) {
+      const alert = await this.alertCtrl.create({
+        header: 'Error de actualización',
+        message: 'El RUT ingresado no es válido.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    if (this.newPassword && this.newPassword !== this.confirmNewPassword) {
+      const alert = await this.alertCtrl.create({
+        header: 'Error de actualización',
+        message: 'Las contraseñas no coinciden.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    const currentUsername = this.sessionService.getUserSession();
+    const users = this.localStorageService.get('usuarios') || [];
+    const currentUser = users.find((user: User) => user.username === currentUsername);
+
     const updatedUser: User = {
       nombreCompleto: this.nombreCompleto,
       username: this.username,
       correo: this.correo,
       rut: this.rut,
       carrera: this.carrera,
-      password: '', // No actualizamos la contraseña aquí
-      confirmPassword: '' // No actualizamos la confirmación de contraseña aquí
+      password: this.newPassword || (currentUser ? currentUser.password : ''), // Mantener la contraseña existente si no se proporciona una nueva
+      confirmPassword: this.confirmNewPassword || (currentUser ? currentUser.confirmPassword : '') // Mantener la confirmación de contraseña existente si no se proporciona una nueva
     };
 
     // Actualizar userData
@@ -70,6 +108,22 @@ export class PerfilPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+
+    // Recargar los datos del usuario después de la actualización
+    this.loadUserData();
+  }
+
+  isValidRUT(rut: string): boolean {
+    this.isRutValid = validate(rut); // Usa la función de validación de rut.js
+    return this.isRutValid;
+  }
+
+  toggleNewPasswordVisibility() {
+    this.showNewPassword = !this.showNewPassword;
+  }
+
+  toggleConfirmNewPasswordVisibility() {
+    this.showConfirmNewPassword = !this.showConfirmNewPassword;
   }
 
   navigateTo(route: string) {

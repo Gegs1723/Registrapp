@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center custom-title">Página no encontrada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" id="body">
+  <ion-card class="ion-text-center" id="square">
+    <ion-img src="assets/img/logo.png" alt="Logo de la aplicación" class="logo custom-logo"></ion-img>
+    <ion-card-content>
+      <ion-img src="assets/img/404.png" alt="Error 404" class="error-image"></ion-img>
+      <div class="text-blue">
+        <h1>Lo sentimos, la página que buscas no existe.</h1>
+      </div>
+      <ion-button color="primary" routerLink="/home">Volver al inicio</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center text-dark">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

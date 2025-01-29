@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+* {
+  font-family: 'Merriweather', serif;
+}
+
+#body {
+  font-family: 'Lato', sans-serif;
+  color: #1A1A1A; /* Color de texto principal */
+  background: linear-gradient(45deg, #F1B634, #ffffff); /* Degradado de color */
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#list {
+  margin: 10px;
+}
+
+#square, #cont-bot, #verde {
+  font-size: 20px; /* Tamaño de la fuente */
+  color: white; /* Color del texto */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 10px; /* Esquinas redondeadas */
+  margin: 10px auto; /* Centrar horizontalmente */
+  text-align: center; /* Centrar el texto */
+  width: 80%; /* Ancho del cuadrado */
+}
+
+#square {
+  background-color: #007bff; /* Color de fondo azul */
+}
+
+#cont-bot {
+  background-color: #132CAA; /* Color de fondo azul oscuro */
+}
+
+#verde {
+  background-color: #08701f; /* Color de fondo verde */
+}
+
+.custom-title {
+  font-size: 100px; /* Tamaño del texto */
+  color: #007bff; /* Color azul */
+}
+
+.parrafo-color {
+  color: #007bff; /* Color azul */
+  font-size: 30px; /* Tamaño de la fuente */
+}
+
+.custom-logo, .small-logo {
+  width: 90%; /* Ancho de la imagen */
+  height: auto; /* Mantener la proporción de la imagen */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+.text-dark {
+  color: #1A1A1A;
+}
+
+.text-light {
+  color: #FFFFFF;
+}
+
+.text-blue {
+  color: #132CAA;
+}

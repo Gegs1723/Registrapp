@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center custom-title">Bienvenido al Menú de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" id="body">
+  <ion-card class="ion-text-center" id="square">
+    <ion-card-content>
+      <h1 class="custom-title">¡Es un placer tenerte a bordo, {{username}}!</h1>
+      <ion-img id="animationImage" src="assets/img/logo.png" alt="Logo de la aplicación" class="logo custom-logo"></ion-img>
+      <div>
+        <p>Registra tu asistencia de forma fácil y rápida. <br><strong>Solo necesitas escanear <br>el código QR desde el aula </strong> <br>para confirmar tu asistencia </p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card id="cont-bot">
+    <ion-card-content>
+      <ion-button expand="block" color="warning" routerLink="/escanear">
+        <ion-icon name="reload-outline"></ion-icon> Registrar Asistencia
+      </ion-button>
+      <ion-button expand="block" color="danger" routerLink="/perfil">
+        <ion-icon name="person-circle-outline"></ion-icon> Perfil de Usuario
+      </ion-button>
+      <ion-button expand="block" color="success" routerLink="/historial">
+        <ion-icon name="list-outline"></ion-icon> Historial de Asistencia
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <div *ngIf="address">
+        <p><strong>Su ubicacion actual es:</strong> {{address.road}},<br> {{address.suburb}}, {{address.state}}</p>
+      </div>
+      <div *ngIf="locationError">
+        <p>Error al obtener la ubicación:</p>
+        <p>{{locationError}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center text-dark">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center custom-title">Iniciar Sesión</ion-title>
+   </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" id="body">
+  <ion-card class="ion-text-center" id="square">
+    <ion-card-content>
+      <ion-title class="parrafo-color">{{bienve}}</ion-title>
+      <ion-img src="assets/img/logo.png" alt="logo" class="logo custom-logo"></ion-img>
+      <div class="text-blue">
+        <p>{{mensaje}}</p>
+        <ion-item>
+          <ion-label position="floating"><ion-icon name="person-circle-outline"></ion-icon>Usuario</ion-label>
+          <ion-input [(ngModel)]="username" placeholder="" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" type="password" placeholder="" required></ion-input>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card id="cont-bot">
+    <ion-card-content>
+      <ion-button expand="block" color="warning" (click)="login()">
+        <ion-icon name="log-in-outline"></ion-icon>Ingresar
+      </ion-button>
+      <p class="ion-text-center">¿No tienes cuenta?</p>
+      <ion-button expand="block" color="danger" routerLink="/registro">
+        <ion-icon name="person-add-outline"></ion-icon> Regístrate aquí
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <p>¿Problemas para acceder? <ion-button fill="clear" color="tertiary" routerLink="/recuperar">Recupera
+          contraseña</ion-button><br> O contacta con el soporte de tu institución educativa.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center text-dark">© 2025 Todos los derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-footer>

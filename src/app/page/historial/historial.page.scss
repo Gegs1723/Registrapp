@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  color: #1B263B; /* Azul marino */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+/* Cuerpo */
+#body {
+  background-color: #FFFFFF; /* Fondo blanco puro */
+  color: #3C3C3C; /* Texto gris oscuro */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+#container {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #F7F7F7; /* Blanco nieve */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Listas */
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Elementos destacados */
+#square, #cont-bot, #verde {
+  background-color: #1B263B; /* Azul marino */
+  color: #FFFFFF; /* Texto blanco */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Títulos personalizados */
+.custom-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1B263B; /* Azul marino */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Párrafos con color personalizado */
+.parrafo-color {
+  color: #3C3C3C; /* Gris oscuro */
+  font-size: 14px;
+}
+
+/* Logos personalizados */
+.custom-logo, .small-logo {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Texto oscuro */
+.text-dark {
+  color: #3C3C3C; /* Gris oscuro */
+}
+
+/* Texto claro */
+.text-light {
+  color: #FFFFFF; /* Blanco */
+}
+
+/* Texto azul */
+.text-blue {
+  color: #1B263B; /* Azul marino */
+}
+
+/* Botones */
+button, .ion-button {
+  background-color: #61A5FF; /* Azul celeste */
+  color: #FFFFFF; /* Texto blanco */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botones al pasar el cursor */
+button:hover, .ion-button:hover {
+  background-color: #1B263B; /* Azul marino */
+}
+
+/* Tarjetas */
+ion-card-content {
+  background-color: #f4fcb3; /* Blanco nieve */
+  color: #3C3C3C; /* Gris oscuro */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
